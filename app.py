@@ -140,9 +140,9 @@ elif pagina == "🔴 Alertas de Vencimento":
 
             with st.expander(f"{icon} {lote['produto']} — Lote {lote['numero_lote']} | Vence em **{dias} dia(s)**"):
                 c1, c2, c3, c4 = st.columns(4)
-                c1.metric("Saldo", f"{lote['saldo']} {lote['unidade']}")
+                c1.metric("Saldo", f"{lote['saldo']} {lote['unidade_medida']}")
                 c2.metric("Dias Restantes", dias)
-                c3.metric("Consumo Médio/dia", f"{lote['consumo_medio_dia']} {lote['unidade']}")
+                c3.metric("Consumo Médio/dia", f"{lote['consumo_medio_dia']} {lote['unidade_medida']}")
                 c4.metric("Dias para Escoar", lote["dias_para_escoar"])
 
                 st.markdown(f"""
