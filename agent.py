@@ -7,7 +7,13 @@ from database import buscar_lotes_criticos, buscar_historico_movimentacoes, resu
 
 load_dotenv()
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+try:
+    import streamlit as st
+    api_key = st.secrets.get("GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
+except Exception:
+    api_key = os.getenv("GEMINI_API_KEY")
+
+genai.configure(api_key=api_key)
 
 SYSTEM_PROMPT = """Você é o Agente de Perecibilidade do sistema ERP — especialista em controle de validade e FEFO (First Expired, First Out) para refeitórios institucionais como SESC e SENAC.
 
